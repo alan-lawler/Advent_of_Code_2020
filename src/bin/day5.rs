@@ -6,7 +6,6 @@ fn main() {
     let input = "../../files/day5_input.txt";
     let file = File::open(input).unwrap();
     let reader = BufReader::new(file);
-
     let mut results: Vec<u32> = vec![];
 
     for lines in reader.lines() {
@@ -26,17 +25,9 @@ fn main() {
             }
             count += 1;
         }
-
-        let row = rows[0];
-        let column = columns[0];
-        let id = row * 8 + column;
-
-        results.push(id);
+        results.push(rows[0] * 8 + columns[0]);
     }
-
-    let answer = results.iter().max().unwrap();
-
-    println!("{}", answer)
+    println!("{}", results.iter().max().unwrap())
 }
 
 fn find_upper(range: Vec<u32>) -> Vec<u32> {
